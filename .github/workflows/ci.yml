@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker Image
-        run: docker build -t devops-app .
+        run: docker build -t devops-portfolio .
 
       - name: Run Container
-        run: docker run -d -p 3000:3000 devops-app
+        run: docker run -d -p 3000:3000 devops-portfolio
