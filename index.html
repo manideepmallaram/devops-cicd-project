@@ -1,87 +1,272 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Manideep Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0f172a;
-      color: #f1f5f9;
-      text-align: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manideep | DevOps Portfolio</title>
 
-    header {
-      background: #1e293b;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-    section {
-      margin: 40px;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
+html{scroll-behavior:smooth;}
 
-    h1 {
-      color: #38bdf8;
-    }
+body{
+  background: radial-gradient(circle at 20% 20%, #0f172a, #020617),
+              radial-gradient(circle at 80% 80%, #1e293b, transparent);
+  color:#e2e8f0;
+}
 
-    .card {
-      background: #1e293b;
-      margin: 20px auto;
-      padding: 20px;
-      width: 60%;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
+header{text-align:center;padding:100px 20px 60px;}
+header h1{font-size:60px;color:#38bdf8;}
+header p{color:#94a3b8;}
 
-    .btn {
-      background: #38bdf8;
-      color: black;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+.social img{
+  width:35px;
+  margin:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.social img:hover{transform:scale(1.2);}
 
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      background: #1e293b;
-    }
-  </style>
+section{padding:70px 10%;}
+h2{color:#38bdf8;margin-bottom:25px;}
+
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:40px 20px;
+}
+.stat-box{
+  background:rgba(30,41,59,0.6);
+  padding:25px;
+  border-radius:12px;
+  text-align:center;
+}
+
+.about{max-width:700px;line-height:1.6;}
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:15px;
+}
+
+.skills-container{text-align:center;margin-bottom:20px;}
+.skills-container img{width:80px;cursor:pointer;}
+
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  margin-top:20px;
+}
+.skill{
+  background:rgba(30,41,59,0.6);
+  padding:10px 16px;
+  border-radius:20px;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.project{
+  background:rgba(30,41,59,0.6);
+  padding:22px;
+  border-radius:12px;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+}
+.modal-content{
+  background:#1e293b;
+  margin:8% auto;
+  padding:30px;
+  width:350px;
+  border-radius:12px;
+}
+.close{float:right;cursor:pointer;}
+
+.cert-grid{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:20px;
+}
+.cert-grid img{
+  width:120px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.cert-grid img:hover{transform:scale(1.1);}
+
+#imgViewer img{
+  display:block;
+  margin:auto;
+  max-width:90%;
+  margin-top:5%;
+}
+
+footer{text-align:center;padding:25px;color:#64748b;}
+</style>
 </head>
 
 <body>
 
 <header>
-   Manideep | DevOps Portfolio
+  <h1 data-aos="fade-up">Manideep</h1>
+  <p data-aos="fade-up" data-aos-delay="200">
+    DevOps Engineer • Automation • Cloud • CI/CD
+  </p>
+
+  <div class="social" data-aos="fade-up" data-aos-delay="300">
+    <a href="https://github.com/manideepmallaram" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
+    </a>
+    <a href="https://www.linkedin.com/in/manideep-mallaram-385b3b381/" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+    </a>
+  </div>
 </header>
 
-<section>
-  <h1>Hello, I'm Manideep </h1>
-  <p>Aspiring DevOps Engineer</p>
+<section class="stats">
+  <div class="stat-box" data-aos="fade-up"><h2>3+</h2><p>Projects</p></div>
+  <div class="stat-box" data-aos="fade-up" data-aos-delay="100"><h2>5+</h2><p>Technologies</p></div>
+  <div class="stat-box" data-aos="fade-up" data-aos-delay="200"><h2>2</h2><p>AI Projects</p></div>
 </section>
 
-<div class="card">
-  <h2>Skills</h2>
-  <p>Docker | Git | CI/CD | Linux</p>
+<section>
+  <h2 data-aos="fade-right">About Me</h2>
+  <div class="about" data-aos="fade-up">
+    <p>DevOps enthusiast focused on automation and scalable systems.</p>
+    <div class="about-grid">
+      <div>📍 India</div>
+      <div>🎓 B.Tech CSE</div>
+      <div>💻 DevOps + AI</div>
+      <div>🚀 Goal: DevOps Engineer</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+  <h2 data-aos="fade-right">Education</h2>
+  <div style="text-align:center;" data-aos="fade-up">
+    <div style="font-size:45px;cursor:pointer;" onclick="openEdu()">🎓📘</div>
+    <p>Click to view education</p>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <h2 data-aos="fade-right">Certifications</h2>
+  <div style="text-align:center;" data-aos="fade-up">
+    <div style="font-size:45px;cursor:pointer;" onclick="openCert()">📜</div>
+    <p>Click to view certificates</p>
+  </div>
+</section>
+
+<section>
+  <h2 data-aos="fade-right">Skills</h2>
+  <div class="skills-container" data-aos="fade-up">
+    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721294.png" onclick="toggleSkills()">
+    <p>Click icon to view skills</p>
+  </div>
+
+  <div id="skillsBox" style="display:none;">
+    <div class="skills">
+      <div class="skill">Docker</div>
+      <div class="skill">Git</div>
+      <div class="skill">CI/CD</div>
+      <div class="skill">Linux</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Python</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-aos="fade-right">Projects</h2>
+  <div class="projects">
+    <div class="project" data-aos="fade-up"><h3>Crop Yield Prediction</h3><p>ML + full stack system.</p></div>
+    <div class="project" data-aos="fade-up" data-aos-delay="150"><h3>AI Traffic System</h3><p>YOLO + OpenCV detection.</p></div>
+    <div class="project" data-aos="fade-up" data-aos-delay="300"><h3>DevOps CI/CD</h3><p>Docker deployment pipeline.</p></div>
+  </div>
+</section>
+
+<!-- EDUCATION MODAL -->
+<div id="eduModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeEdu()">&times;</span>
+    <h2>Education</h2>
+    <p><b>B.Tech - IARE</b></p>
+    <p>2024 – 2028</p>
+    <br>
+    <p><b>Paramita</b></p>
+    <p>2016 – 2024</p>
+  </div>
 </div>
 
-<div class="card">
-  <h2>Projects</h2>
-  <p>DevOps CI/CD Portfolio Website</p>
+<!-- CERT MODAL -->
+<div id="certModal" class="modal">
+  <div class="modal-content" style="width:500px;">
+    <span class="close" onclick="closeCert()">&times;</span>
+    <h2>Certifications</h2>
+
+    <div class="cert-grid">
+      <img src="aitoolwkshpbe10x_page-0001.jpg" onclick="openImage(this.src)">
+      <img src="intro genai_page-0001.jpg" onclick="openImage(this.src)">
+      <img src="llm cert ibm_page-0001.jpg" onclick="openImage(this.src)">
+      <img src="HCL GUVI Certification - s75g1G4f5N71A58475 (1).png" onclick="openImage(this.src)">
+    </div>
+  </div>
 </div>
 
-<div class="card">
-  <h2> Contact</h2>
-  <p>Email: yourmail@example.com</p>
+<!-- IMAGE VIEW -->
+<div id="imgViewer" class="modal">
+  <span class="close" onclick="closeImage()">&times;</span>
+  <img id="fullImg">
 </div>
 
-<footer>
-  © 2026 Manideep
-</footer>
+<footer>© 2026 Manideep</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({ duration:1000, once:true });
+
+function toggleSkills(){
+  const box=document.getElementById("skillsBox");
+  box.style.display=box.style.display==="none"?"block":"none";
+}
+
+function openEdu(){ document.getElementById("eduModal").style.display="block"; }
+function closeEdu(){ document.getElementById("eduModal").style.display="none"; }
+
+function openCert(){ document.getElementById("certModal").style.display="block"; }
+function closeCert(){ document.getElementById("certModal").style.display="none"; }
+
+function openImage(src){
+  document.getElementById("imgViewer").style.display="block";
+  document.getElementById("fullImg").src=src;
+}
+function closeImage(){
+  document.getElementById("imgViewer").style.display="none";
+}
+</script>
 
 </body>
 </html>

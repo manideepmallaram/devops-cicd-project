@@ -1,24 +1,36 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+const http = require("http");
+const fs = require("fs");
+const path = require("path");
 
 const port = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
-  // Always serve index.html for root
-  let filePath = path.join(__dirname, 'index.html');
+http.createServer((req, res) => {
 
-  fs.readFile(filePath, (err, data) => {
+  let filePath = "." + (req.url === "/" ? "/index.html" : req.url);
+
+  const ext = path.extname(filePath);
+
+  const contentTypes = {
+    ".html": "text/html",
+    ".css": "text/css",
+    ".js": "text/javascript",
+    ".json": "application/json",
+    ".png": "image/png",
+    ".jpg": "image/jpeg"
+  };
+
+  const contentType = contentTypes[ext] || "text/plain";
+
+  fs.readFile(filePath, (err, content) => {
     if (err) {
-      res.writeHead(500);
-      res.end("Server Error");
+      res.writeHead(404);
+      res.end("Not Found");
     } else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end(data);
+      res.writeHead(200, { "Content-Type": contentType });
+      res.end(content);
     }
   });
-});
 
-server.listen(port, '0.0.0.0', () => {
+}).listen(port, "0.0.0.0", () => {
   console.log("Server running on port " + port);
 });
